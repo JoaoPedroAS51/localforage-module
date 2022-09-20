@@ -49,7 +49,8 @@ const module = defineNuxtModule({
   },
   defaults: {
     name: "nuxtJS",
-    storeName: "nuxtLocalForage"
+    storeName: "nuxtLocalForage",
+    instances: []
   },
   setup(options, nuxt) {
     defineRuntimeConfig(nuxt, options);

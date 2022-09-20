@@ -1,9 +1,9 @@
 import { useNuxtApp, useRuntimeConfig } from "#app";
 export function useLocalForage(instance) {
   const { $localForage } = useNuxtApp();
-  const { public: { localForage: localForageOptions } } = useRuntimeConfig();
+  const { public: { localForage: options } } = useRuntimeConfig();
   if (instance) {
-    if (!localForageOptions.instances?.find(({ storeName, name }) => storeName === instance || name === instance)) {
+    if (!options.instances?.find(({ storeName, name }) => storeName === instance || name === instance)) {
       throw new Error(`Instance "${instance}" not found in LocalForage options.`);
     }
   }

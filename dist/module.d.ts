@@ -87,7 +87,14 @@ declare const LOCALSTORAGE: string;
 declare const WEBSQL: string;
 
 interface ModuleOptions extends LocalForageOptions {
-    instances?: LocalForageOptions[];
+    name: string;
+    storeName: string;
+    instances: LocalForageOptions[];
+}
+declare module '@nuxt/schema' {
+    interface PublicRuntimeConfig {
+        localForage: ModuleOptions;
+    }
 }
 declare const _default: _nuxt_schema.NuxtModule<ModuleOptions>;
 
