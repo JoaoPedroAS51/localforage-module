@@ -1,4 +1,4 @@
-import { isNuxt2, defineNuxtModule, createResolver, addPlugin, addAutoImport } from '@nuxt/kit';
+import { isNuxt2, defineNuxtModule, createResolver, addPlugin, addImports } from '@nuxt/kit';
 import localforage from 'localforage';
 import { defu } from 'defu';
 
@@ -45,10 +45,7 @@ const module = defineNuxtModule({
   meta: {
     name,
     version,
-    configKey: "localForage",
-    compatibility: {
-      bridge: true
-    }
+    configKey: "localForage"
   },
   defaults: {
     name: "nuxtJS",
@@ -62,7 +59,7 @@ const module = defineNuxtModule({
       src: resolve(runtimeDir, "plugin"),
       mode: "client"
     });
-    addAutoImport({
+    addImports({
       name: "useLocalForage",
       as: "useLocalForage",
       from: resolve(runtimeDir, "composables")
